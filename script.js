@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { dia: 7, text: "Yo allá todo asustado por si veo medusillas maxo", img: "imagenes/dia7.jpg" },
         { dia: 8, text: "Churros navideños 🍩" },
         { dia: 9, text: "Vale por un paseo navideño para ver las luces del centro (y comer heladico 🍦)" },
-        { dia: 10, text: "Un recuerdo especial 📸", img: "imagenes/dia11.jpg" }, 
+        { dia: 10, text: "La foto mas linda que tenemos mixi, que preciosos somos joder maxo.", img: "imagenes/dia11.jpg" }, //si tienes dudas la imagen esta bien
         { dia: 11, text: "Familia como a usted le gusta jejejej", img: "imagenes/dia10.jpg" },
         { dia: 12, text: "Hoy te vengo a recordar que eres lo mas bonito de mi vida, la chica con la que quiero absolutamente todo, TAMICO LINDA 🥰" },
         { dia: 13, text: "Vale por un chocolatico sin frutos secos 🍫" },
