@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Mountains+of+Christmas:wght@700&display=swap');
+
+:root {
+    --bg-dark: #2a0a0a;
+    --bg-red: #8e0e00;
+    --box-red: #c0392b;
+    --box-green: #1e5f36;
+    --ribbon-gold: #f1c40f;
+    --ribbon-shadow: #b7950b;
+    --snow-white: #f0f0f0;
+    --glow: rgba(255, 223, 0, 0.6);
+}
+
+body {
+    font-family: 'Mountains of Christmas', cursive;
+    background: radial-gradient(circle at center, var(--bg-red), var(--bg-dark));
+    color: var(--snow-white);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Fondo de Nieve --- */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        radial-gradient(4px 4px at 20% 30%, white, rgba(0, 0, 0, 0)),
+        radial-gradient(4px 4px at 40% 70%, white, rgba(0, 0, 0, 0)),
+        radial-gradient(4px 4px at 50% 160%, white, rgba(0, 0, 0, 0)),
+        radial-gradient(4px 4px at 80% 10%, white, rgba(0, 0, 0, 0)),
+        radial-gradient(4px 4px at 90% 40%, white, rgba(0, 0, 0, 0));
+    background-size: 200px 200px;
+    animation: snowFall 10s linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes snowFall {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(200px);
+    }
+}
+
+header {
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    margin: 0;
+    color: var(--ribbon-gold);
+    text-shadow: 0 0 10px var(--glow), 2px 2px 0px #000;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* --- Grid del Calendario --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    width: 100%;
+    z-index: 2;
+    padding-bottom: 50px;
+}
+
+/* --- ESTILO DE LAS CAJAS/PUERTAS --- */
+.door {
+    position: relative;
+    background: linear-gradient(135deg, var(--box-green) 0%, #0f3d20 100%);
+    height: 130px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-style: preserve-3d;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.door:nth-child(even) {
+    background: linear-gradient(135deg, var(--box-red) 0%, #720e03 100%);
+}
+
+/* ESTILO DEL NÚMERO (Corregido) */
+.door span {
+    z-index: 10;
+    /* Encima de los lazos */
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    font-family: 'Great Vibes', cursive;
+}
+
+/* --- El Lazo de Regalo --- */
+.door::before,
+.door::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to right, var(--ribbon-gold), #f9e79f, var(--ribbon-shadow));
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    /* Detrás del número */
+}
+
+.door::before {
+    width: 15px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.door::after {
+    height: 15px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.door:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--glow);
+    z-index: 10;
+}
+
+/* --- Estados --- */
+.door.locked {
+    filter: grayscale(0.8);
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.door.opened {
+    background: #f0f0f0;
+    background-image: radial-gradient(#fff 20%, transparent 20%),
+        radial-gradient(#fff 20%, transparent 20%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.door.opened span {
+    color: var(--box-red);
+    text-shadow: none;
+}
+
+.door.opened::before,
+.door.opened::after {
+    display: none;
+}
+
+/* --- Modal --- */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.3s;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: linear-gradient(to bottom, #fffcf5, #f1c40f 400%);
+    padding: 40px;
+    border-radius: 15px;
+    border: 4px solid var(--box-red);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 50px var(--glow);
+    transform: scale(0.8);
+    transition: transform 0.3s;
+    color: #333;
+}
+
+.modal:not(.hidden) .modal-content {
+    transform: scale(1);
+}
+
+.modal h2 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--box-red);
+    font-size: 3rem;
+    margin-top: 0;
+    border-bottom: 2px dashed var(--box-red);
+    padding-bottom: 10px;
+}
+
+.modal-body {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--box-red);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border: 2px solid white;
+}
+
+.modal-img {
+    margin-top: 15px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(-2deg);
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    .calendar-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .door {
+        height: 90px;
+    }
+
+    .door span {
+        font-size: 2.5rem;
+    }
+}
