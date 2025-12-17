@@ -33,24 +33,36 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    background-image:
-        radial-gradient(4px 4px at 20% 30%, white, rgba(0, 0, 0, 0)),
-        radial-gradient(4px 4px at 40% 70%, white, rgba(0, 0, 0, 0)),
-        radial-gradient(4px 4px at 50% 160%, white, rgba(0, 0, 0, 0)),
-        radial-gradient(4px 4px at 80% 10%, white, rgba(0, 0, 0, 0)),
-        radial-gradient(4px 4px at 90% 40%, white, rgba(0, 0, 0, 0));
-    background-size: 200px 200px;
-    animation: snowFall 10s linear infinite;
-    opacity: 0.6;
+    overflow: hidden;
 }
 
-@keyframes snowFall {
-    0% {
-        transform: translateY(0);
-    }
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
+    animation: fall linear forwards;
+}
 
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(25vh) translateX(15px);
+    }
+    50% {
+        transform: translateY(50vh) translateX(-15px);
+    }
+    75% {
+        transform: translateY(75vh) translateX(15px);
+    }
     100% {
-        transform: translateY(200px);
+        transform: translateY(110vh) translateX(0);
     }
 }
 

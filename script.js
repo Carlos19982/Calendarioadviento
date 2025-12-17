@@ -100,4 +100,41 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.add('hidden');
     });
+
+    // --- Sistema de Nieve Dinámico ---
+    const snowContainer = document.querySelector('.snow-container');
+
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        // Propiedades aleatorias
+        const size = Math.random() * 5 + 2 + 'px'; // Entre 2px y 7px
+        const left = Math.random() * 100 + 'vw';
+        const opacity = Math.random() * 0.5 + 0.3; // Entre 0.3 y 0.8
+        const duration = Math.random() * 5 + 5 + 's'; // Entre 5s y 10s
+        const delay = Math.random() * 5 + 's';
+        const blur = Math.random() * 2 + 'px';
+
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.left = left;
+        snowflake.style.opacity = opacity;
+        snowflake.style.animationDuration = duration;
+        snowflake.style.animationDelay = delay;
+        snowflake.style.filter = `blur(${blur})`;
+
+        snowContainer.appendChild(snowflake);
+
+        // Eliminar después de que termine la animación
+        setTimeout(() => {
+            snowflake.remove();
+        }, (parseFloat(duration) + parseFloat(delay)) * 1000);
+    }
+
+    // Crear copos iniciales y luego periódicamente
+    for (let i = 0; i < 50; i++) {
+        createSnowflake();
+    }
+    setInterval(createSnowflake, 200);
 });
