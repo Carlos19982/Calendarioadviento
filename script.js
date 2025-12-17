@@ -21,10 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
         { dia: 12, text: "Hoy te vengo a recordar que eres lo mas bonito de mi vida, la chica con la que quiero absolutamente todo, TAMICO LINDA 🥰" },
         { dia: 13, text: "Vale por un chocolatico sin frutos secos 🍫" },
         { dia: 14, text: "Aun recuerdo el viaje a Vigo que bien nos lo pasamos linda mia 🥰", img: "imagenes/dia14.jpg" },
-        {dia: 15, text: "Xomu Navideño te desea Feliz Navidad linda 🐶", img: "imagenes/dia15.png"},
-        {dia: 16, text: "Elige para ver Mario Bros la Pelicula o Como entrenar a tu Dragon lindo 🐲"},
-        {dia: 17, text: "El próximo viaje que haremos sera a:$$\Huge{\text{𝕾} \text{𝕱} \text{𝕯} \text{𝕰} \text{𝕮} \text{𝕬} \text{𝕭} \text{𝕹} \text{𝕸} \text{𝕷} \text{𝕶} \text{𝕵} \text{𝕴} \text{𝕳} \text{𝕲} \text{𝕽} \text{𝕼} \text{𝕻} \text{𝕺} \text{𝕎} \text{𝖁} \text{𝖀} \text{𝕿} \text{𝕾} \text{𝕽} \text{𝕼}}$$", img: "imagenes/dia17.png"},
-      
+        { dia: 15, text: "Xomu Navideño te desea Feliz Navidad linda 🐶", img: "imagenes/dia15.png" },
+        { dia: 16, text: "Elige para ver Mario Bros la Pelicula o Como entrenar a tu Dragon lindo 🐲" },
+        { dia: 17, text: "El próximo viaje que haremos sera a:$$\Huge{\text{𝕾} \text{𝕱} \text{𝕯} \text{𝕰} \text{𝕮} \text{𝕬} \text{𝕭} \text{𝕹} \text{𝕸} \text{𝕷} \text{𝕶} \text{𝕵} \text{𝕴} \text{𝕳} \text{𝕲} \text{𝕽} \text{𝕼} \text{𝕻} \text{𝕺} \text{𝕎} \text{𝖁} \text{𝖀} \text{𝕿} \text{𝕾} \text{𝕽} \text{𝕼}}$$", img: "imagenes/dia17.png" },
+        { dia: 18, text: "Tenemos que ver algo que vemos todos los años...... amor....... navidad.... peliculita de amor navideño chao" },
+        { dia: 19, text: "Vale por un día en la cocina juntos, toca preparar un dulsesico" },
+        { dia: 20, text: "Vale por un día en la cocina juntos, toca preparar un dulsesico" },
 
         // ... Rellena hasta el 24
     ];
