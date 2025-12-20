@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { dia: 17, text: "El próximo viaje que haremos sera a:$$\Huge{\text{𝕾} \text{𝕱} \text{𝕯} \text{𝕰} \text{𝕮} \text{𝕬} \text{𝕭} \text{𝕹} \text{𝕸} \text{𝕷} \text{𝕶} \text{𝕵} \text{𝕴} \text{𝕳} \text{𝕲} \text{𝕽} \text{𝕼} \text{𝕻} \text{𝕺} \text{𝕎} \text{𝖁} \text{𝖀} \text{𝕿} \text{𝕾} \text{𝕽} \text{𝕼}}$$", img: "imagenes/dia17.png" },
         { dia: 18, text: "Tenemos que ver algo que vemos todos los años...... amor....... navidad.... peliculita de amor navideño chao" },
         { dia: 19, text: "Vale por un día en la cocina juntos, toca preparar un dulsesico" },
+        { dia: 20, text: "Vale por un masaje en los pies después de un día largo 👣" },
+        { dia: 21, text: "" },
+        { dia: 22, text: "Mira qué guapos estábamos aquí, ¡me encanta esta foto! 😍", img: "imagenes/dia22.jpg" },
+        { dia: 23, text: "Vale por tu postre favorito hecho con mucho amor 🍰" },
+        { dia: 24, text: "¡FELIZ NAVIDAD MI AMOR! Eres el mejor regalo que la vida me ha dado. Te amo muchísimo ❤️", img: "imagenes/dia24.jpg" }
 
 
         // ... Rellena hasta el 24
