@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { dia: 18, text: "Tenemos que ver algo que vemos todos los años...... amor....... navidad.... peliculita de amor navideño chao" },
         { dia: 19, text: "Vale por un día en la cocina juntos, toca preparar un dulsesico" },
         { dia: 20, text: "Vale por un masaje en los pies después de un día largo 👣" },
-        { dia: 21, text: "" },
-        { dia: 22, text: "Mira qué guapos estábamos aquí, ¡me encanta esta foto! 😍", img: "imagenes/dia22.jpg" },
+        { dia: 21, text: "Preparación de un dulse parte 2 jejejej" },
+        { dia: 22, text: "Mira qué guapos estábamos aquí, ¡me encanta esta foto! 😍", imgs: ["imagenes/dia22.jpg", "imagenes/dia221.jpg", "imagenes/dia222.jpg", "imagenes/dia223.jpg", "imagenes/dia224.jpg"] },
         { dia: 23, text: "Vale por tu postre favorito hecho con mucho amor 🍰" },
         { dia: 24, text: "¡FELIZ NAVIDAD MI AMOR! Eres el mejor regalo que la vida me ha dado. Te amo muchísimo ❤️", img: "imagenes/dia24.jpg" }
 
@@ -87,7 +87,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Rellenar modal
         modalTitle.innerText = `🎄 Día ${day} 🎄`;
-        modalBody.innerHTML = `<p>${mensaje}</p>${imagen}`;
+
+        let visualContent = '';
+        if (content && content.imgs) {
+            // Generar Carrusel
+            visualContent = `
+                <div class="carousel-container">
+                    <div class="carousel-slides">
+                        ${content.imgs.map((img, index) => `
+                            <div class="carousel-slide ${index === 0 ? 'active' : ''}">
+                                <img src="${img}" class="modal-img">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <button class="carousel-btn prev" id="carousel-prev">❮</button>
+                    <button class="carousel-btn next" id="carousel-next">❯</button>
+                    <div class="carousel-dots">
+                        ${content.imgs.map((_, index) => `
+                            <span class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        } else if (content && content.img) {
+            visualContent = `<img src="${content.img}" class="modal-img">`;
+        }
+
+        modalBody.innerHTML = `<p>${mensaje}</p>${visualContent}`;
+
+        // Inicializar lógica del carrusel si existe
+        if (content && content.imgs) {
+            initCarousel();
+        }
 
         // Mostrar modal
         modal.classList.remove('hidden');
@@ -142,4 +173,37 @@ document.addEventListener('DOMContentLoaded', () => {
         createSnowflake();
     }
     setInterval(createSnowflake, 200);
+
+    // --- Lógica del Carrusel ---
+    let currentSlide = 0;
+
+    function initCarousel() {
+        currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('carousel-prev');
+        const nextBtn = document.getElementById('carousel-next');
+
+        if (!slides.length) return;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+
+            currentSlide = (n + slides.length) % slides.length;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.getAttribute('data-index'));
+                showSlide(index);
+            });
+        });
+    }
 });
