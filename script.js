@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { dia: 20, text: "Vale por un masaje en los pies después de un día largo 👣" },
         { dia: 21, text: "Preparación de un dulse parte 2 jejejej" },
         { dia: 22, text: "Mira qué guapos estábamos aquí, ¡me encanta esta foto! 😍", imgs: ["imagenes/dia22.jpg", "imagenes/dia221.jpg", "imagenes/dia222.jpg", "imagenes/dia223.jpg", "imagenes/dia224.jpg"] },
-        { dia: 23, text: "Vale por tu postre favorito hecho con mucho amor 🍰" },
+        { dia: 23, text: "Vale patinar sobre hielico porque te lo mereses" },
         { dia: 24, text: "¡FELIZ NAVIDAD MI AMOR! Eres el mejor regalo que la vida me ha dado. Te amo muchísimo ❤️", img: "imagenes/dia24.jpg" }
 
 
